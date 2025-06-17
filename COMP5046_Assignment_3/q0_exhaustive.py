@@ -14,6 +14,7 @@ def exhaustive(tokens, distributions, transitions, labels):
                 sequence_score *= transitions.get((sequence[i], sequence[i+1]), 0)
         
         sequence_score *= transitions.get((sequence[-1], "END"), 0)
+        
         if sequence_score > score or sequence_score == score and list(sequence) > label_sequence:
             score = sequence_score
             label_sequence = list(sequence)
