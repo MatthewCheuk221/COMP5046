@@ -23,6 +23,8 @@ class CodeModel:
         for label in labels:
             self.weights[label] = {}
 
+        return
+
     def get_features(self, question, label):
         features = []
         for word in question.split():
@@ -136,7 +138,6 @@ def calculate_macro_f1(confusion_matrix, labels):
     f_scores = []
     precision = calculate_precision(confusion_matrix, labels)
     recall = calculate_recall(confusion_matrix, labels)
-
     for label in labels:
         if precision[label] == 0 and recall[label] == 0:
             harmonic_mean = 1.0
