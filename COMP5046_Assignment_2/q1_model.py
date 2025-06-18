@@ -14,8 +14,6 @@ class CodeModel:
         for label in labels:
             self.weights[label] = {}
 
-        pass
-
     def get_features(self, question, label):
         """Produce a list of features for a specific question and label.
         
