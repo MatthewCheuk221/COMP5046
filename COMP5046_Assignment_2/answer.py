@@ -23,8 +23,6 @@ class CodeModel:
         for label in labels:
             self.weights[label] = {}
 
-        pass
-
     def get_features(self, question, label):
         features = []
         for word in question.split():
