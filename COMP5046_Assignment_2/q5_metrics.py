@@ -76,7 +76,6 @@ def calculate_macro_f1(confusion_matrix, labels):
     """
     
     f_scores = []
-    
     precision = calculate_precision(confusion_matrix, labels)
     recall = calculate_recall(confusion_matrix, labels)
     
