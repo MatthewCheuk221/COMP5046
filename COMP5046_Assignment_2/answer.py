@@ -109,7 +109,7 @@ def calculate_precision(confusion_matrix, labels):
             if other != label:
                 false_positive += confusion_matrix.get((other, label), 0)
 
-        if (true_positive == 0 and false_positive == 0):
+        if true_positive == 0 and false_positive == 0:
             precision_dictionary[label] = 1.0
         else:
             precision_dictionary[label] = true_positive / (true_positive + false_positive)
@@ -125,7 +125,7 @@ def calculate_recall(confusion_matrix, labels):
             if other != label:
                 false_negative += confusion_matrix.get((label, other), 0)
 
-        if (true_positive == 0 and false_negative == 0):
+        if true_positive == 0 and false_negative == 0:
             recall_dictionary[label] = 1.0
         else:
             recall_dictionary[label] = true_positive / (true_positive + false_negative)
@@ -139,7 +139,7 @@ def calculate_macro_f1(confusion_matrix, labels):
     recall = calculate_recall(confusion_matrix, labels)
 
     for label in labels:
-        if (precision[label] == 0 and recall[label] == 0):
+        if precision[label] == 0 and recall[label] == 0:
             harmonic_mean = 1.0
         else:
             harmonic_mean = 2 * precision[label] * recall[label] / (precision[label] + recall[label])
