@@ -5,6 +5,13 @@ def main(filename, iterations, read_data, model_maker, learn, find_best_code, ge
     Keyword arguments:
     filename -- a string, the location of a json file containing data
     iterations -- an integer, the number of iterations of training to do
+    read_data -- a function, as defined in the Data question
+    model_maker -- a class, as defined in the Model question
+    learn -- a function, as defined in the Learning question
+    find_best_code -- a function, as defined in the Inference question
+    get_confusion_matrix -- a function, as defined in the Confusion Matrix question
+    calculate_accuracy -- a function, as defined in the Evaluation Metrics question
+    calculate_macro_f1 -- a function, as defined in the Evaluation Metrics question
     """
 
     data, queries = read_data(filename)
