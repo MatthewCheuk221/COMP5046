@@ -160,19 +160,23 @@ def main(filename, iterations):
     data, queries = read_data(filename)
     model = CodeModel(queries, data['train'])
     dev_scores = []
-    for _ in range(iterations):
+    for i in range(iterations):
+        print(f"Training Round {i+1} starts.")
         for question, answer in data["train"]:
             learn(question, answer, model, find_best_code)
-
+        
         development_confusion_matrix = get_confusion_matrix(data['dev'], model, find_best_code)
         development_accuracy = calculate_accuracy(development_confusion_matrix, queries)
         development_f_score = calculate_macro_f1(development_confusion_matrix, queries)
         dev_scores.append({'accuracy': development_accuracy, 'macro-f1': development_f_score})
+        print(f"Training Round {i+1} finishes.")
 
+    print("Testing starts.")
     testing_confusion_matrix = get_confusion_matrix(data['test'], model, find_best_code)
     testing_accuracy = calculate_accuracy(testing_confusion_matrix, queries)
     testing_f_score = calculate_macro_f1(testing_confusion_matrix, queries)
     test_score = {'accuracy': testing_accuracy, 'macro-f1': testing_f_score}
+    print("Testing finishes.")
 
     return dev_scores, test_score
 
