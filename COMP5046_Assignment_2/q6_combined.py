@@ -1,12 +1,5 @@
-from q0_data import read_data
-from q1_model import CodeModel as model_maker
-from q2_inference import find_best_code
-from q3_learning import learn
-from q4_confusion import get_confusion_matrix
-from q5_metrics import calculate_accuracy, calculate_macro_f1
-
 # This is the function you need to implement
-def main(filename, iterations):
+def main(filename, iterations, read_data, model_maker, learn, find_best_code, get_confusion_matrix, calculate_accuracy, calculate_macro_f1):
     """Trains and evaluates a model on some read_data
 
     Keyword arguments:
@@ -32,6 +25,3 @@ def main(filename, iterations):
     test_score = {'accuracy': testing_accuracy, 'macro-f1': testing_f_score}
 
     return dev_scores, test_score
-
-if __name__ == '__main__':
-    print(main("long_training.json", 10))
